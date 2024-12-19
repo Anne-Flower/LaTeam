@@ -1,13 +1,13 @@
-# Les 6 voleurs => Ransomware simulation project
+# Les 5 voleurs => Ransomware simulation project
 
 
 ### Fonctionalities
 
-** Files crypted ** => files in 'dossier_confidentiel' are crypted with AES
-** Files decrypted ** => files can be restaured
-** Send an email ** => ransomware simulated
-** Message for monney ** => instructions to do
-** Automation ** => Makrfile created to help the simulation
+- ** Files crypted ** : files in 'dossier_confidentiel' are crypted with AES
+- ** Files decrypted ** : files can be restaured
+- ** Send an email ** : ransomware simulated
+- ** Message for monney ** : instructions to do
+- ** Automation ** : Makrfile created to help the simulation
 
 
 ### Install
