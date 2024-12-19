@@ -24,5 +24,5 @@
 - make run
 - make email
 
-### Or ###
+### Or
 - make main
