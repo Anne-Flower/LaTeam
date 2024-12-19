@@ -5,7 +5,6 @@ import tty
 
 commands = [
     "make email",
-    "make run",
     "make encrypt",
     "make decrypt"
 ]
