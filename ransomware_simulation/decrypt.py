@@ -2,10 +2,12 @@ import os
 from Crypto.Cipher import AES
 
 
+# Fonction pour retirer le remplissage
 def unpad(data):
     return data.rstrip(b' ')
 
 
+# Fonction de déchiffrement
 def decrypt_file(file_path, key):
     cipher = AES.new(key, AES.MODE_ECB)
     with open(file_path, 'rb') as f:
