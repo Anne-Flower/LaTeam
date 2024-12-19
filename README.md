@@ -23,3 +23,6 @@
 - make build
 - make run
 - make email
+
+### Or ###
+- make main
