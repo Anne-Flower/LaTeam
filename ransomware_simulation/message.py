@@ -11,9 +11,9 @@ root.configure(bg="black")  # Change la couleur de fond en noir
 # Ajout d'un label pour afficher un message
 message = tk.Label(
     root,
-    text="Vos fichiers ont été chiffrés. Pour les récupérer, envoyez 1 000 000 BTC à l'adresse suivante : \n Contactez-nous à anneviola@gmail.com après execution du paiement.",
-    font=("Arial", 24),
-    fg="green",
+    text="Vos fichiers ont été chiffrés.\n Pour les récupérer, envoyez 1 000 000 BTC à l'adresse suivante : \n Contactez-nous à lescinqvoleurs@gmail.com après execution du paiement.",
+    font=("Arial", 30),
+    fg="red",
     bg="black"
 )
 message.pack(expand=True)
