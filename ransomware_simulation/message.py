@@ -1,42 +1,27 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
-def resize_image(event):
-    """Redimensionne l'image selon la taille de la fenêtre."""
-    # Obtenir les dimensions actuelles de la fenêtre
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-
-    # Redimensionner l'image en fonction des nouvelles dimensions
-    resized_image = bg_image.resize((new_width, new_height), Image.ANTIALIAS)
-    new_photo = ImageTk.PhotoImage(resized_image)
-
-    # Mettre à jour l'image dans le label
-    bg_label.config(image=new_photo)
-    bg_label.image = new_photo  # Conserver une référence pour éviter le garbage collection
-
-def exit_fullscreen(event=True):
+def exit_fullscreen(root, event=None):
     """Ferme la fenêtre en appuyant sur la touche Échap."""
     root.destroy()
 
-# Création de la fenêtre principale
-root = tk.Tk()
-root.attributes("-fullscreen", True)  # Active le mode plein écran
+def message():
+    root = tk.Tk()
+    root.attributes("-fullscreen", True) 
+    image_path = "rancon.png" 
+    bg_image = Image.open(image_path)
+    bg_image = bg_image.resize((1600, 900), Image.Resampling.LANCZOS)  # Redimension à 1600x900
+    bg_photo = ImageTk.PhotoImage(bg_image)
 
-# Charger l'image
-image_path = "rancon.png"  # Chemin vers l'image
-bg_image = Image.open(image_path)  # Charge l'image avec Pillow
-bg_photo = ImageTk.PhotoImage(bg_image)  # Convertit l'image pour tkinter
+    # Calculer la position pour centrer l'image
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    x_offset = (screen_width - 1600) // 2
+    y_offset = (screen_height - 900) // 2
 
-# Ajouter l'image dans un Label
-bg_label = tk.Label(root, image=bg_photo)
-bg_label.place(relwidth=1, relheight=1)  # Étire le Label pour remplir la fenêtre
+    bg_label = tk.Label(root, image=bg_photo)
+    bg_label.place(x=x_offset, y=y_offset) 
 
-# Lier l'événement de redimensionnement
-root.bind("<Configure>", resize_image)
+    root.bind("<Escape>", lambda event: exit_fullscreen(root, event))
 
-# Lier la touche Échap pour quitter
-root.bind("<Escape>", exit_fullscreen)
-
-# Lancer la boucle principale
-root.mainloop()
+    root.mainloop()
