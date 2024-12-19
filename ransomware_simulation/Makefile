@@ -4,9 +4,10 @@ PYTHON = poetry run python
 POETRY = poetry
 ENCRYPT = encrypt.py
 DECRYPT = decrypt.py
+MAIN = main.py
 
 # files are run even if it doesn't exist
-.PHONY: install encrypt decrypt clean build run email
+.PHONY: install encrypt decrypt clean build run email main
 
 # Install dependencies via Poetry
 install:
@@ -35,3 +36,6 @@ run:
 # Send mail with script send_email.py
 email:
 	$(PYTHON) send_email.py
+
+main:
+	$(PYTHON) $(MAIN)
