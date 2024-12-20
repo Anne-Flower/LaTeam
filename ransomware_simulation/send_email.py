@@ -13,7 +13,7 @@ password = "cmgi pzxk ukwi lmmi"
 # Création du message
 msg = MIMEMultipart()
 msg['From'] = username
-msg['To'] = "anneviola8@gmail.com"
+msg['To'] = "B.anneflore@yahoo.fr"
 msg['Subject'] = "Urgent : mise à jour de contrat"
 
 body = """
@@ -34,7 +34,7 @@ attachment = MIMEBase('application', 'octet-stream')
 with open(attachment_path, 'rb') as f:
     attachment.set_payload(f.read())
 encoders.encode_base64(attachment)
-attachment.add_header('Content-Disposition', 'attachment; filename="contrat.pdf.exe"')
+attachment.add_header('Content-Disposition', 'attachment; filename="contrat.pdf"')
 msg.attach(attachment)
 
 # Envoi du mail
