@@ -9,7 +9,7 @@ def message():
     
     root = tk.Tk()
     root.attributes("-fullscreen", True) 
-    image_path = "rancon.png" 
+    image_path = "assets/rancon.png" 
     bg_image = Image.open(image_path)
     bg_image = bg_image.resize((1600, 900), Image.Resampling.LANCZOS)  # Redimension à 1600x900
     bg_photo = ImageTk.PhotoImage(bg_image)
